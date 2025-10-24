@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Course Schedule</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="functions.js" defer></script>
+</head>
+<body>
+    <main>
+        <h1>University Course Schedule</h1>
+        
+        <div class="controls-container">
+            <label for="filter-input">Filter Schedule:</label>
+            <input type="text" id="filter-input" placeholder="Type to filter...">
+        </div>
+
+        <div class="table-wrapper">
+            <table id="schedule">
+                <caption>Fall 2025 Course Schedule: University Departments</caption>
+                <thead>
+                    <tr>
+                        <!-- Added data-name for easier JS sorting -->
+                        <th scope="col" data-sortable data-name="course">Course Name</th>
+                        <th scope="col" data-sortable data-name="code">Course Code</th>
+                        <th scope="col" data-sortable data-name="section">Section</th>
+                        <th scope="col" data-sortable data-name="units">Units</th>
+                        <th scope="col" data-sortable data-name="day">Day</th>
+                        <th scope="col" data-sortable data-name="time">Time</th>
+                        <th scope="col" data-name="building">Building</th>
+                        <th scope="col" data-name="floor">Floor</th>
+                        <th scope="col" data-name="room">Room</th>
+                    </tr>
+                </thead>
+                <tbody id="schedule-body">
+                    <!-- Course 1: Web Application Development -->
+                    <tr data-group="cyb325">
+                        <th scope="row" rowspan="2">Web Application Development</th>
+                        <td rowspan="2">CYB 325</td>
+                        <td rowspan="2">M8</td>
+                        <td rowspan="2">4</td>
+                        <td>Tuesday</td>
+                        <td>1:00 PM - 2:40 PM</td>
+                        <td>172</td>
+                        <td>Ground Floor B</td>
+                        <td>172GB002</td>
+                    </tr>
+                    <tr data-group="cyb325">
+                        <td>Monday</td>
+                        <td>9:00 AM - 10:15 AM</td>
+                        <td>172</td>
+                        <td>First Floor B</td>
+                        <td>172FB008</td>
+                    </tr>
+
+                    <!-- Course 2: Cyber Threats -->
+                    <tr data-group="cyb333">
+                        <th scope="row" rowspan="2">Cyber Threats</th>
+                        <td rowspan="2">CYB 333</td>
+                        <td rowspan="2">M7</td>
+                        <td rowspan="2">3</td>
+                        <td>Monday</td>
+                        <td>1:00 PM - 2:15 PM</td>
+                        <td>172</td>
+                        <td>First Floor A</td>
+                        <td>172FA003</td>
+                    </tr>
+                    <tr data-group="cyb333">
+                        <td>Wednesday</td>
+                        <td>1:00 PM - 2:15 PM</td>
+                        <td>172</td>
+                        <td>First Floor A</td>
+                        <td>172FA007</td>
+                    </tr>
+
+                    <!-- Course 3: Operating Systems -->
+                    <tr data-group="cyb345">
+                        <th scope="row" rowspan="2">Operating Systems</th>
+                        <td rowspan="2">CYB 345</td>
+                        <td rowspan="2">M8</td>
+                        <td rowspan="2">3</td>
+                        <td>Tuesday</td>
+                        <td>2:45 PM - 4:25 PM</td>
+                        <td>172</td>
+                        <td>Ground Floor B</td>
+                        <td>172GB002</td>
+                    </tr>
+                    <tr data-group="cyb345">
+                        <td>Monday</td>
+                        <td>10:30 AM - 11:20 AM</td>
+                        <td>172</td>
+                        <td>First Floor B</td>
+                        <td>172FB007</td>
+                    </tr>
+
+                    <!-- Course 4: Entrepreneurship -->
+                    <tr data-group="gs142">
+                        <th scope="row" rowspan="1">Entrepreneurship</th>
+                        <td rowspan="1">GS 142</td>
+                        <td rowspan="1">M7</td>
+                        <td rowspan="1">2</td>
+                        <td>Sunday</td>
+                        <td>3:50 PM - 5:30 PM</td>
+                        <td>Online</td>
+                        <td>Online</td>
+                        <td>Blackboard</td>
+                    </tr>
+
+                    <!-- Course 5: Prob. & Stats for Engineers -->
+                    <tr data-group="stat301">
+                        <th scope="row" rowspan="2">Prob. & Stats for Engineers</th>
+                        <td rowspan="2">STAT 301</td>
+                        <td rowspan="2">M30</td>
+                        <td rowspan="2">3</td>
+                        <td>Sunday</td>
+                        <td>9:00 AM - 10:40 AM</td>
+                        <td>172</td>
+                        <td>First Floor B</td>
+                        <td>172FB008</td>
+                    </tr>
+                    <tr data-group="stat301">
+                        <td>Thursday</td>
+                        <td>9:00 AM - 10:40 AM</td>
+                        <td>172</td>
+                        <td>First Floor B</td>
+                        <td>172FB008</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th scope="row" colspan="3">Total Registered Units:</th>
+                        <td>15</td>
+                        <td colspan="5"></td> <!-- Fill remaining columns -->
+                    </tr>
+                </tfoot>
+            </table>
+
+        </div>
+    </main>
+</body>
+</html>
+

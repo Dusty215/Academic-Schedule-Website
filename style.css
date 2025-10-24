@@ -1,0 +1,223 @@
+/* --- Basic Setup --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4; /* Fallback color */
+    color: #333;
+    margin: 0;
+    padding: 20px;
+
+    /* --- New Background Image Properties --- */
+    background-image: url('https://www.taibahu.edu.sa/sites/default/files/2025-04/9b493a21-7e7b-4125-ab07-4c713746ce48.jpeg');
+    background-size: cover; /* Cover the entire page */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-attachment: fixed; /* Fix the image so it doesn't scroll */
+
+    /* --- New Flex properties to fill screen --- */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Make body at least full viewport height */
+    box-sizing: border-box; /* Include padding in height calculation */
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #f9f9f9; /* Kept light background for readability */
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    /* --- New Flex property --- */
+    flex-grow: 1; /* This makes main element grow to fill empty space */
+}
+
+h1 {
+    text-align: center;
+    color: #444;
+}
+
+/* --- Controls --- */
+.controls-container {
+    margin-bottom: 20px;
+}
+
+.controls-container label {
+    font-weight: bold;
+    margin-right: 10px;
+    color: #333; /* Ensure label text is dark */
+}
+
+#filter-input {
+    width: 300px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    /* Force light theme for input */
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* --- Table Styles --- */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto; /* For responsive design on small screens */
+    background-color: transparent; /* Set to transparent as requested */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 0.95rem;
+}
+
+caption {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #555;
+    text-align: left;
+}
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    text-align: left;
+    vertical-align: top; /* Align content to the top */
+}
+
+/* Header */
+thead th {
+    background-color: #666;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Body */
+tbody tr {
+    /* Remove background from tr itself */
+    transition: background-color 0.2s;
+}
+
+/* Apply background to the cells directly */
+tbody td {
+    background-color: #f0f0f0;
+}
+
+/* Style for the row-header cell */
+tbody th[scope="row"] {
+    background-color: #e9e9e9;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+/* Hover effect: Apply to all cells in the row */
+tbody tr:hover td {
+    background-color: #ddd;
+}
+tbody tr:hover th[scope="row"] {
+    background-color: #d0d0d0; /* Darker hover for the row header */
+}
+
+/* Footer */
+tfoot tr {
+    background-color: #e0e0e0;
+}
+
+tfoot th, tfoot td {
+    font-weight: bold;
+}
+
+/* --- Sorting Indicators --- */
+th[data-sortable] {
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+}
+
+th[data-sortable]:hover {
+    background-color: #777;
+}
+
+/* Arrows for sorting */
+th[data-sortable]::after {
+    content: '\25B2'; /* Up arrow */
+    font-size: 0.8em;
+    color: #aaa;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%) rotate(180deg); /* Start as faint down arrow */
+    opacity: 0.5;
+}
+
+th.sort-asc::after {
+    content: '\25B2'; /* Up arrow */
+    opacity: 1;
+    color: #fff;
+    transform: translateY(-50%) rotate(0deg);
+}
+
+th.sort-desc::after {
+    content: '\25BC'; /* Down arrow */
+    opacity: 1;
+    color: #fff;
+    transform: translateY(-50%) rotate(0deg);
+}
+
+/* --- Accessibility --- */
+/* Show focus for keyboard navigation */
+tbody tr:focus {
+    outline: 2px solid #666;
+    outline-offset: -1px;
+}
+
+/* --- Print Styles --- */
+@media print {
+    body {
+        background-color: #fff;
+        background-image: none; /* Remove background image for printing */
+        font-family: "Times New Roman", Times, serif;
+    }
+
+    main {
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .controls-container {
+        display: none;
+    }
+
+    table, th, td {
+        border: 1px solid #333;
+        font-size: 11pt;
+    }
+
+    thead th {
+        background-color: #ddd;
+        color: #000;
+    }
+
+    tbody tr {
+        background-color: #fff !important; /* Override zebra stripes */
+    }
+    
+    /* Make sure TD and TH backgrounds are set for printing */
+    tbody td {
+        background-color: #fff !important;
+    }
+    tbody th[scope="row"] {
+         background-color: #f0f0f0 !important;
+    }
+
+    th[data-sortable]::after {
+        content: ""; /* Remove arrows */
+    }
+}
+
+
